@@ -1,6 +1,12 @@
 import React, { useState, ChangeEventHandler } from "react";
 import Container from "@mui/material/Container";
-import { InputAdornment, Box, Typography, OutlinedInput } from "@mui/material";
+import {
+  InputAdornment,
+  Box,
+  Typography,
+  OutlinedInput,
+  Divider,
+} from "@mui/material";
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
 
 export default function App() {
@@ -13,8 +19,10 @@ export default function App() {
     setSearchValue("");
   };
   return (
-    <Container maxWidth="sm" sx={{ display: "flex", flexDirection: "column" }}>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+    <Container sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{ display: "flex", flexDirection: "column", gap: 1, marginTop: 5 }}
+      >
         <Typography sx={{ fontWeight: 600 }}>Filter by keywords</Typography>
         <OutlinedInput
           onChange={handleChange}
@@ -32,14 +40,23 @@ export default function App() {
             borderRadius: 1.25,
             border: "1px solid #EAEAEA",
             boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
+            maxWidth: 600,
             "& input": {
               padding: 0,
             },
-            "& fieldset": {
-              // borderColor: "red",
-            },
           }}
         />
+      </Box>
+      <Box
+        sx={{
+          marginTop: 4,
+          display: "flex",
+          flexDirection: "column",
+          gap: 0.5,
+        }}
+      >
+        <Typography sx={{ fontWeight: 600 }}>Results: 0</Typography>
+        <Divider />
       </Box>
     </Container>
   );
