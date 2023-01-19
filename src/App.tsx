@@ -6,6 +6,11 @@ import {
   Typography,
   OutlinedInput,
   Divider,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+  Button,
 } from "@mui/material";
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
 
@@ -57,6 +62,30 @@ export default function App() {
       >
         <Typography sx={{ fontWeight: 600 }}>Results: 0</Typography>
         <Divider />
+      </Box>
+      <Box sx={{ marginTop: 4.5 }}>
+        <Card sx={{ maxWidth: 400 }}>
+          <CardMedia
+            sx={{ height: 217 }}
+            image="/static/images/cards/contemplative-reptile.jpg"
+            title="green iguana"
+          />
+          <CardContent
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+          >
+            <Typography variant="h5" component="div">
+              The 2020 World's Most Valuable Brands
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Non sed molestie tortor massa vitae in mattis. Eget vel consequat
+              hendrerit commodo libero aliquam. Urna arcu nunc tortor vitae
+              pharetra...
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button variant="text">Read more </Button>
+          </CardActions>
+        </Card>
       </Box>
     </Container>
   );
