@@ -1,4 +1,9 @@
 import React, { useState, ChangeEventHandler } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Link
+} from "react-router-dom";
 import Container from "@mui/material/Container";
 import {
   InputAdornment,
@@ -15,6 +20,7 @@ import {
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
 import { CalendarToday } from "@mui/icons-material";
 import { ArrowForward } from "@mui/icons-material";
+import Main from "./Main";
 
 export default function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -124,6 +130,7 @@ export default function App() {
                   color: "secondary.main",
                   fontWeight: 700,
                   fontSize: 16,
+                  // textDecoration: "none"
                 }}
               >
                 Read more
@@ -140,6 +147,7 @@ export default function App() {
           </CardActions>
         </Card>
       </Box>
+      <Main />
     </Container>
   );
 }
