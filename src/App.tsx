@@ -45,7 +45,8 @@ export default function App() {
             paddingX: 2,
             paddingY: 1.5,
             borderRadius: 1.25,
-            border: "1px solid #EAEAEA",
+            border: "1px solid",
+            borderColor: "primary.main",
             boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
             maxWidth: 600,
             "& input": {
@@ -66,7 +67,15 @@ export default function App() {
         <Divider />
       </Box>
       <Box sx={{ marginTop: 4.5 }}>
-        <Card sx={{ maxWidth: 400 }}>
+        <Card
+          sx={{
+            maxWidth: 400,
+            border: "1px solid",
+            borderColor: "primary.main",
+            boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
+            borderRadius: "5px",
+          }}
+        >
           <CardMedia
             sx={{ height: 217 }}
             image="/static/images/cards/contemplative-reptile.jpg"
@@ -90,7 +99,7 @@ export default function App() {
                 June 29th, 2021
               </Typography>
             </Box>
-            <Typography variant="h5" component="div">
+            <Typography variant="h5" component="div" color="secondary.main">
               The 2020 World's Most Valuable Brands
             </Typography>
             <Typography variant="body2" color="text.secondary">
@@ -112,7 +121,7 @@ export default function App() {
               <Typography
                 sx={{
                   textTransform: "capitalize",
-                  color: "black",
+                  color: "secondary.main",
                   fontWeight: 700,
                   fontSize: 16,
                 }}
@@ -120,7 +129,12 @@ export default function App() {
                 Read more
               </Typography>
               <ArrowForward
-                sx={{ height: "10px", width: "12px", color: "black", marginTop: "2px" }}
+                sx={{
+                  height: "10px",
+                  width: "12px",
+                  color: "secondary.main",
+                  marginTop: "2px",
+                }}
               />
             </Button>
           </CardActions>
