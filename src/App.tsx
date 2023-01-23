@@ -13,6 +13,8 @@ import {
   Button,
 } from "@mui/material";
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
+import { CalendarToday } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
 
 export default function App() {
   const [searchValue, setSearchValue] = useState("");
@@ -73,6 +75,21 @@ export default function App() {
           <CardContent
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 1,
+              }}
+            >
+              <CalendarToday
+                sx={{ height: "13px", width: "12px", color: "text.secondary" }}
+              />{" "}
+              <Typography color="text.secondary" fontSize={14}>
+                June 29th, 2021
+              </Typography>
+            </Box>
             <Typography variant="h5" component="div">
               The 2020 World's Most Valuable Brands
             </Typography>
@@ -83,7 +100,29 @@ export default function App() {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button variant="text">Read more </Button>
+            <Button
+              variant="text"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                gap: "4px",
+              }}
+            >
+              <Typography
+                sx={{
+                  textTransform: "capitalize",
+                  color: "black",
+                  fontWeight: 700,
+                  fontSize: 16,
+                }}
+              >
+                Read more
+              </Typography>
+              <ArrowForward
+                sx={{ height: "10px", width: "12px", color: "black", marginTop: "2px" }}
+              />
+            </Button>
           </CardActions>
         </Card>
       </Box>
