@@ -65,7 +65,7 @@ export default function ReadMore() {
           viverra mi lacus lacinia accumsan. Pellentesque gravida ligula
           bibendum aliquet nulla massa elit. Ac faucibus donec sit morbi
           pharetra urna. Vel facilisis amet placerat ultrices lobortis proin
-          nulla.{" "}
+          nulla.
         </Box>
       </Box>
       <Button
@@ -85,14 +85,13 @@ export default function ReadMore() {
             marginTop: "2px",
           }}
         />
-        <Link to="/">
+        <Link to="/" style={{ textDecoration: 'none' }}>
           <Typography
             sx={{
               textTransform: "capitalize",
               color: "secondary.main",
               fontWeight: 700,
               fontSize: 16,
-              // textDecoration: "none"
             }}
           >
             Back to homepage

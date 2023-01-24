@@ -121,15 +121,18 @@ export default function Main() {
                 gap: "4px",
               }}
             >
-              <Link to="/readmore">
+              <Link to="/readmore" style={{ textDecoration: 'none' }}>
                   <Typography
                     sx={{
-                      textTransform: "capitalize",
+                      textTransform: "lowercase",
                       color: "secondary.main",
                       fontWeight: 700,
                       fontSize: 16,
-                      // textDecoration: "none"
-                    }}
+                      ":first-letter": {
+                        textTransform: "uppercase",
+                      }
+                    }
+                }
                   >
                     Read more
                   </Typography>
