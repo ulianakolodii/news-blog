@@ -62,8 +62,7 @@ export default function ReadMore() {
           ut sagittis proin enim. Eget in aenean mi a elit viverra amet urna,
           diam. Cursus id viverra amet adipiscing. Pretium, amet amet mi mauris
           urna, maecenas. Risus ut sit quis donec. Lacinia elementum, amet
-          gravida convallis elementum, metus cras. 
-          nulla.
+          gravida convallis elementum, metus cras.
         </Box>
       </Box>
       <Button
