@@ -1,19 +1,23 @@
-import { fetchNews } from "../api/news";
-import NewsItem from "./NewsItem";
-// import { NewsItemType } from "../api/news";
+import React, { useEffect, useState } from 'react'
+import { fetchNews, NewsItems } from "../api/news";
+import NewsCard from "./NewsCard";
 
-export default async function NewsList() {
-  const news = await fetchNews();
-  console.log(news);
+
+export default function NewsList() {
+    const [data, setData] = useState<NewsItems>();
+    useEffect(() => {
+        const loadNews = async () => {
+            const news = await fetchNews();
+            setData(news);
+        }
+        loadNews();
+    }, [])
   return (
     <div>
-      {news.map((newsItem) => (
-        <NewsItem key={newsItem.id} {...newsItem} />
+      {data && data.map((newsItem) => (
+        <NewsCard key={newsItem.id} {...newsItem} />
       ))}
     </div>
   );
 }
 
-// return <> {
-//     news && news.map((newsItem) => <NewsItem key={newsItem.id} {...newsItem} />)
-//     }</>

@@ -1,4 +1,4 @@
-export type NewsItemType = {
+export type NewsItem = {
   id: number;
   title: string;
   url: string;
@@ -12,9 +12,11 @@ export type NewsItemType = {
   events: Array<string>;
 };
 
+export type NewsItems = Array<NewsItem>;
+
 export const fetchNews = async () => {
   const res = await fetch("https://api.spaceflightnewsapi.net/v3/articles");
-  const news: Array<NewsItemType>= await res.json();
+  const news: NewsItems = await res.json();
   return news;
 };
 

@@ -1,4 +1,4 @@
-import { NewsItemType } from "../api/news";
+import { NewsItem } from "../api/news";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -17,7 +17,7 @@ import { ArrowForward } from "@mui/icons-material";
 // dayjs().format();
 // dayjs.extend(relativeTime);
 
-const NewsItem = ({ title, imageUrl, summary, publishedAt }: NewsItemType) => {
+const NewsCard = ({ title, imageUrl, summary, publishedAt }: NewsItem) => {
   return (
     <Box sx={{ marginTop: 4.5 }}>
       <Card
@@ -93,4 +93,4 @@ const NewsItem = ({ title, imageUrl, summary, publishedAt }: NewsItemType) => {
   );
 };
 
-export default NewsItem;
+export default NewsCard;
