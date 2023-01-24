@@ -2,9 +2,10 @@ import { fetchNews } from "../api/news";
 import NewsItem from "./NewsItem";
 // import { NewsItemType } from "../api/news";
 
-export default async function NewsList() {
-  const news = await fetchNews();
-  console.log(news);
+const news = await fetchNews();
+console.log(news);
+
+export default function NewsList() {
   return (
     <div>
       {news.map((newsItem) => (
