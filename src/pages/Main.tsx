@@ -8,7 +8,7 @@ import {
   Divider,
 } from "@mui/material";
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
-import NewsList from "./components/NewsList";
+import NewsList from "../components/NewsList";
 
 export default function Main() {
   const [searchValue, setSearchValue] = useState("");
@@ -61,7 +61,7 @@ export default function Main() {
         <Typography sx={{ fontWeight: 600 }}>Results: 0</Typography>
         <Divider />
       </Box>
-      <NewsList/>
+      {/* <NewsList/> */}
     </Container>
   );
 }

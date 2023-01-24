@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import Main from "./Main";
-import ReadMore from "./ReadMore";
+import Main from "./pages/Main";
+import ReadMore from "./pages/Article";
 
 export default () => (
   <Routes>
