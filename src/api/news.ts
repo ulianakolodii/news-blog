@@ -1,4 +1,4 @@
-export type News = {
+export type NewsItemType = {
     id: number;
     title: string;
     url: string;
@@ -16,6 +16,6 @@ export type News = {
     const res = await fetch(
       "https://api.spaceflightnewsapi.net/v3/articles"
     );
-    const news: Array<News> | { error: string } = await res.json();
+    const news: Array<NewsItemType> | { error: string } = await res.json();
     return news;
   };
