@@ -5,11 +5,10 @@ import {
   Box,
   Typography,
   OutlinedInput,
-  Divider
+  Divider,
 } from "@mui/material";
 import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
-import NewsItem from "./components/NewsItem";
-
+import NewsList from "./components/NewsList";
 
 export default function Main() {
   const [searchValue, setSearchValue] = useState("");
@@ -62,7 +61,7 @@ export default function Main() {
         <Typography sx={{ fontWeight: 600 }}>Results: 0</Typography>
         <Divider />
       </Box>
-      {/* <NewsItem/> */}
+      <NewsList/>
     </Container>
   );
 }

@@ -1,4 +1,4 @@
-import {NewsItemType} from "../api/news";
+import { NewsItemType } from "../api/news";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -11,13 +11,13 @@ import {
 } from "@mui/material";
 import { CalendarToday } from "@mui/icons-material";
 import { ArrowForward } from "@mui/icons-material";
-import dayjs from 'dayjs';
-import relativeTime from "dayjs/plugin/relativeTime";
+// import dayjs from "dayjs";
+// import relativeTime from "dayjs/plugin/relativeTime";
 
-dayjs().format();
-dayjs.extend(relativeTime);
+// dayjs().format();
+// dayjs.extend(relativeTime);
 
-const NewsItem = ({ title, imageUrl, summary, publishedAt}: NewsItemType) => {
+const NewsItem = ({ title, imageUrl, summary, publishedAt }: NewsItemType) => {
   return (
     <Box sx={{ marginTop: 4.5 }}>
       <Card
@@ -29,10 +29,7 @@ const NewsItem = ({ title, imageUrl, summary, publishedAt}: NewsItemType) => {
           borderRadius: "5px",
         }}
       >
-        <CardMedia
-          sx={{ height: 217 }}
-          image={imageUrl}
-        />
+        <CardMedia sx={{ height: 217 }} image={imageUrl} />
         <CardContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
           <Box
             sx={{
@@ -46,7 +43,7 @@ const NewsItem = ({ title, imageUrl, summary, publishedAt}: NewsItemType) => {
               sx={{ height: "13px", width: "12px", color: "text.secondary" }}
             />
             <Typography color="text.secondary" fontSize={14}>
-            {dayjs().to(dayjs(publishedAt))}
+              {/* {dayjs().to(dayjs(publishedAt))} */}
             </Typography>
           </Box>
           <Typography variant="h5" component="div" color="secondary.main">
