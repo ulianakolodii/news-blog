@@ -1,27 +1,44 @@
-import React, { useState, ChangeEventHandler } from "react";
-import Container from "@mui/material/Container";
-import {
-  InputAdornment,
-  Box,
-  Typography,
-  OutlinedInput,
-  Divider,
-} from "@mui/material";
-import { ReactComponent as SearchIcon } from "./assets/icons/search.svg";
+import React, {
+  useState,
+  ChangeEventHandler,
+  useTransition,
+  useMemo,
+} from "react";
+import { InputAdornment, Box, Typography, OutlinedInput } from "@mui/material";
+import { ReactComponent as SearchIcon } from "../assets/icons/search.svg";
 import NewsList from "../components/NewsList";
+import { useArticlesData } from "../hooks";
 
 export default function Main() {
-  const [searchValue, setSearchValue] = useState("");
+  const [, startTransition] = useTransition();
+  const [filter, setFilter] = useState("");
+  const [keywords, keywordsAsMap] = useMemo(() => {
+    const asArr = filter.split(" ").filter(Boolean);
+    const asMap = asArr.reduce(
+      (acc, curr) => ({
+        ...acc,
+        [curr]: true,
+      }),
+      {}
+    );
+    return [asArr, asMap];
+  }, [filter]);
+  const data = useArticlesData({ limit: 6, keywords });
   const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
-    setSearchValue(event.target.value);
+    startTransition(() => {
+      setFilter(event.target.value);
+    });
   };
 
-  // const handleClick = () => {
-  //   setSearchValue("");
-  // };
-
   return (
-    <Container sx={{ display: "flex", flexDirection: "column" }}>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        maxWidth: 1290,
+        marginX: "auto",
+      }}
+    >
       <Box
         sx={{ display: "flex", flexDirection: "column", gap: 1, marginTop: 5 }}
       >
@@ -29,7 +46,7 @@ export default function Main() {
         <OutlinedInput
           onChange={handleChange}
           placeholder="Search..."
-          value={searchValue}
+          value={filter}
           startAdornment={
             <InputAdornment position="start" sx={{ marginRight: 2 }}>
               <SearchIcon />
@@ -50,18 +67,7 @@ export default function Main() {
           }}
         />
       </Box>
-      <Box
-        sx={{
-          marginTop: 4,
-          display: "flex",
-          flexDirection: "column",
-          gap: 0.5,
-        }}
-      >
-        <Typography sx={{ fontWeight: 600 }}>Results: 0</Typography>
-        <Divider />
-      </Box>
-      {/* <NewsList/> */}
-    </Container>
+      <NewsList data={data} keywordsAsMap={keywordsAsMap} />
+    </Box>
   );
 }
