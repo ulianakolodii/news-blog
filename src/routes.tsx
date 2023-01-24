@@ -1,10 +1,13 @@
 import { Route, Routes } from "react-router-dom";
 import Main from "./pages/Main";
-import ReadMore from "./pages/Article";
+import Article from "./pages/Article";
 
-export default () => (
+const routes = () => (
   <Routes>
     <Route path="/" element={<Main />} />
-    <Route path="/readmore" element={<ReadMore />} />
+    <Route path="/readmore/:id" element={<Article />} />
   </Routes>
 );
+
+export default routes;
+
