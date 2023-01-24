@@ -1,17 +1,19 @@
 import React from "react";
-import { Link} from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Box, Typography, Button } from "@mui/material";
+import { useArticleData } from "../hooks";
 import dummyContent from "../dummyContent";
 import { ReactComponent as ArrowBack } from "../assets/icons/arrow-back.svg";
 
 export default function ReadMore() {
-
+  const params = useParams<{ id: string }>();
+  const article = useArticleData({ id: params.id || "" });
 
   return (
     <>
       <Box
         sx={{
-          backgroundImage: "",
+          backgroundImage: `url(${article?.imageUrl || ""})`,
           position: "absolute",
           backgroundSize: "cover",
           top: 0,
@@ -44,7 +46,7 @@ export default function ReadMore() {
           }}
         >
           <Box sx={{ fontSize: 24, marginTop: 3.5 }}>
-            The Space
+            {article?.title || "Loading..."}
           </Box>
           <Box
             sx={{
