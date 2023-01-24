@@ -6,18 +6,24 @@ import { ArrowBack } from "@mui/icons-material";
 
 export default function ReadMore() {
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        border: "1px solid",
-        borderColor: "primary.main",
-        boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
-      }}
-    >
-      <Box sx={{ maxWidth: 1290, maxHeight: 1000 }}>
-        <Box>The 2020 World's Most Valuable Brands</Box>
-        <Box>
+    <Container sx={{}}>
+      <Box
+        sx={{
+          marginTop: 15,
+          marginBottom: 3.5,
+          maxWidth: 1290,
+          textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          border: "1px solid",
+          borderColor: "primary.main",
+          boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.05)",
+        }}
+      >
+        <Box sx={{ fontSize: 24, marginTop: 3.5 }}>
+          The 2020 World's Most Valuable Brands
+        </Box>
+        <Box sx={{ textAlign: "left", fontSixe: 18, marginY: 5, marginX: 7.5 }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Interdum
           ornare convallis non etiam tincidunt tincidunt. Non dolor vel purus
           id. Blandit habitasse volutpat id dolor pretium, sem iaculis. Faucibus
@@ -56,25 +62,20 @@ export default function ReadMore() {
           ut sagittis proin enim. Eget in aenean mi a elit viverra amet urna,
           diam. Cursus id viverra amet adipiscing. Pretium, amet amet mi mauris
           urna, maecenas. Risus ut sit quis donec. Lacinia elementum, amet
-          gravida convallis elementum, metus cras. Adipiscing suspendisse etiam
-          tellus tellus arcu. At accumsan rhoncus, fringilla ut scelerisque
-          consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Interdum ornare convallis non etiam tincidunt tincidunt. Non dolor vel
-          purus id. Blandit habitasse volutpat id dolor pretium, sem iaculis.
-          Faucibus commodo mauris enim, turpis blandit. Porttitor facilisi
-          viverra mi lacus lacinia accumsan. Pellentesque gravida ligula
-          bibendum aliquet nulla massa elit. Ac faucibus donec sit morbi
-          pharetra urna. Vel facilisis amet placerat ultrices lobortis proin
+          gravida convallis elementum, metus cras. 
           nulla.
         </Box>
       </Box>
       <Button
         variant="text"
         sx={{
+          left: 0,
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
           gap: "4px",
+          marginLeft: 10,
+          paddingBottom: 4.5
         }}
       >
         <ArrowBack
@@ -85,7 +86,7 @@ export default function ReadMore() {
             marginTop: "2px",
           }}
         />
-        <Link to="/" style={{ textDecoration: 'none' }}>
+        <Link to="/" style={{ textDecoration: "none" }}>
           <Typography
             sx={{
               textTransform: "capitalize",
