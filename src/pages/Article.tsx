@@ -16,10 +16,10 @@ export default function ReadMore() {
           backgroundImage: `url(${article?.imageUrl || ""})`,
           position: "absolute",
           backgroundSize: "cover",
-          top: 0,
+          top: -150,
           left: 0,
           right: 0,
-          height: 245,
+          height: 395,
         }}
       ></Box>
       <Box
