@@ -31,14 +31,14 @@ const NewsCard: FC<Article & { keywordsAsMap: Record<string, true> }> = ({
 }) => {
   const highlightedTitle = title.split(" ").map((word) => {
     if (keywordsAsMap[word.toLowerCase()]) {
-      return <span style={{ background: "yellow" }}>{word}</span>;
+      return <span style={{ background: "yellow" }}> {word} </span>;
     }
     return ` ${word} `;
   });
   const truncatedSummary = truncate(summary || "", 100);
   const highlightedSummary = truncatedSummary.split(" ").map((word) => {
     if (keywordsAsMap[word.toLowerCase()]) {
-      return <span style={{ background: "yellow" }}>{word}</span>;
+      return <span style={{ background: "yellow" }}> {word} </span>;
     }
     return ` ${word} `;
   });
