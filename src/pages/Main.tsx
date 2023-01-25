@@ -28,6 +28,7 @@ export default function Main() {
     startTransition(() => {
       setFilter(event.target.value);
     });
+    console.log(filter);
   };
 
   return (
@@ -35,8 +36,9 @@ export default function Main() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        maxWidth: 1290,
+        maxWidth: 1330,
         marginX: "auto",
+        paddingX: 2,
       }}
     >
       <Box

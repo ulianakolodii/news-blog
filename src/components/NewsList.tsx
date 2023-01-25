@@ -3,6 +3,8 @@ import { Box, Typography, Divider } from "@mui/material";
 import NewsCard from "./NewsCard";
 import { Articles } from "../api";
 
+
+
 const NewsList: FC<{
   data?: Articles;
   keywordsAsMap: Record<string, true>;
