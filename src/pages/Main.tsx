@@ -13,7 +13,7 @@ export default function Main() {
   const [, startTransition] = useTransition();
   const [filter, setFilter] = useState("");
   const [keywords, keywordsAsMap] = useMemo(() => {
-    const asArr = filter.split(" ").filter(Boolean);
+    const asArr = filter.toLowerCase().split(" ").filter(Boolean);
     const asMap = asArr.reduce(
       (acc, curr) => ({
         ...acc,
@@ -28,7 +28,6 @@ export default function Main() {
     startTransition(() => {
       setFilter(event.target.value);
     });
-    console.log(filter);
   };
 
   return (
