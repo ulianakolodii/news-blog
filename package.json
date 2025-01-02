@@ -48,7 +48,7 @@
     ]
   },
   "devDependencies": {
-    "ts-node": "10.9.1",
-    "openapi-typescript": "5.4.1"
+    "openapi-typescript": "5.4.1",
+    "ts-node": "10.9.1"
   }
 }
