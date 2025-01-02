@@ -99,5 +99,5 @@ export type FactoryProps = ({
 };
 
 export type Articles =
-  Paths["article"]["/v3/articles"]["get"]["responses"]["200"]["content"]["application/json"];
-export type Article = Articles[number];
+  Paths["article"]["/v4/articles"]["get"]["responses"]["200"]["content"]["application/json"];
+export type Article = Articles["results"][number];

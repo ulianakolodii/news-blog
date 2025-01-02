@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/v3/articles/count": {
+  "/v4/articles/count": {
     get: {
       parameters: {};
       responses: {
@@ -37,12 +37,12 @@ export interface paths {
       };
     };
   };
-  "/v3/articles": {
+  "/v4/articles": {
     get: {
       parameters: {
         query: {
           /** Maximum number of results possible */
-          _limit?: number;
+          limit?: number;
           /** Sort according to a specific field. */
           _sort?: string;
           /** Skip a specific number of entries (especially useful for pagination) */
@@ -73,7 +73,7 @@ export interface paths {
         /** response */
         200: {
           content: {
-            "application/json": components["schemas"]["Article"][];
+            "application/json": components["schemas"]["Articles"];
           };
         };
         /** Forbidden */
@@ -97,7 +97,7 @@ export interface paths {
       };
     };
   };
-  "/v3/articles/{id}": {
+  "/v4/articles/{id}": {
     get: {
       parameters: {
         path: {
@@ -132,7 +132,7 @@ export interface paths {
       };
     };
   };
-  "/v3/articles/launch/{id}": {
+  "/v4/articles/launch/{id}": {
     /** Get all articles linked to a launch */
     get: {
       parameters: {
@@ -170,7 +170,7 @@ export interface paths {
       };
     };
   };
-  "/v3/articles/event/{id}": {
+  "/v4/articles/event/{id}": {
     /** Get all articles linked to an event */
     get: {
       parameters: {
@@ -212,16 +212,22 @@ export interface paths {
 
 export interface components {
   schemas: {
+    Articles: {
+      count: number;
+      next: string;
+      previous: string;
+      results: components["schemas"]["Article"][];
+    };
     Article: {
       id: string;
       title: string;
       /** @default false */
       featured?: boolean;
       url: string;
-      imageUrl: string;
+      image_url: string;
       summary?: string;
       /** Format: date-time */
-      publishedAt: string;
+      published_at: string;
       newsSite: {
         id: string;
         name: string;
@@ -257,10 +263,10 @@ export interface components {
       /** @default false */
       featured?: boolean;
       url: string;
-      imageUrl: string;
+      image_url: string;
       summary?: string;
       /** Format: date-time */
-      publishedAt: string;
+      published_at: string;
       newsSite: string;
       launches?: string[];
       events?: string[];

@@ -24,12 +24,12 @@ const truncate = (str: string, length: number) => {
 const NewsCard: FC<Article & { keywordsAsMap: Record<string, true> }> = ({
   id,
   title,
-  imageUrl,
+  image_url,
   summary,
   keywordsAsMap,
-  publishedAt,
+  published_at,
 }) => {
-  const highlightedTitle = title.split(" ").map((word) => {
+  const highlightedTitle = title.split(" ").map((word: string) => {
     if (keywordsAsMap[word.toLowerCase()]) {
       return <span style={{ background: "yellow" }}> {word} </span>;
     }
@@ -54,7 +54,7 @@ const NewsCard: FC<Article & { keywordsAsMap: Record<string, true> }> = ({
         flexBasis: "100%",
       }}
     >
-      <CardMedia sx={{ height: 217 }} image={imageUrl} />
+      <CardMedia sx={{ height: 217 }} image={image_url} />
       <CardContent sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
         <Box
           sx={{
@@ -66,7 +66,7 @@ const NewsCard: FC<Article & { keywordsAsMap: Record<string, true> }> = ({
         >
           <CalendarToday />
           <Typography color="text.secondary" fontSize={14}>
-            {dayjs(publishedAt).format("MMM D, YYYY")}
+            {dayjs(published_at).format("MMM D, YYYY")}
           </Typography>
         </Box>
         <Typography variant="h5" component="div" color="secondary.main">

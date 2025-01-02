@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/v3/articles/count": {
+    "/v4/articles/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -51,13 +51,11 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Article"
-        ],
+        "tags": ["Article"],
         "parameters": []
       }
     },
-    "/v3/articles": {
+    "/v4/articles": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -107,12 +105,10 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Article"
-        ],
+        "tags": ["Article"],
         "parameters": [
           {
-            "name": "_limit",
+            "name": "limit",
             "in": "query",
             "required": false,
             "description": "Maximum number of results possible",
@@ -250,7 +246,7 @@
         ]
       }
     },
-    "/v3/articles/{id}": {
+    "/v4/articles/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -297,9 +293,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Article"
-        ],
+        "tags": ["Article"],
         "parameters": [
           {
             "name": "id",
@@ -314,7 +308,7 @@
         ]
       }
     },
-    "/v3/articles/launch/{id}": {
+    "/v4/articles/launch/{id}": {
       "get": {
         "deprecated": false,
         "description": "Get all articles linked to a launch",
@@ -365,9 +359,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Article"
-        ],
+        "tags": ["Article"],
         "parameters": [
           {
             "name": "id",
@@ -382,7 +374,7 @@
         ]
       }
     },
-    "/v3/articles/event/{id}": {
+    "/v4/articles/event/{id}": {
       "get": {
         "deprecated": false,
         "description": "Get all articles linked to an event",
@@ -433,9 +425,7 @@
           }
         },
         "summary": "",
-        "tags": [
-          "Article"
-        ],
+        "tags": ["Article"],
         "parameters": [
           {
             "name": "id",
@@ -458,8 +448,8 @@
           "id",
           "title",
           "url",
-          "imageUrl",
-          "publishedAt",
+          "image_url",
+          "published_at",
           "newsSite"
         ],
         "properties": {
@@ -476,21 +466,18 @@
           "url": {
             "type": "string"
           },
-          "imageUrl": {
+          "image_url": {
             "type": "string"
           },
           "summary": {
             "type": "string"
           },
-          "publishedAt": {
+          "published_at": {
             "type": "string",
             "format": "date-time"
           },
           "newsSite": {
-            "required": [
-              "id",
-              "name"
-            ],
+            "required": ["id", "name"],
             "properties": {
               "id": {
                 "type": "string"
@@ -527,12 +514,7 @@
           "launches": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "launchId",
-                "name",
-                "provider"
-              ],
+              "required": ["id", "launchId", "name", "provider"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -570,12 +552,7 @@
           "events": {
             "type": "array",
             "items": {
-              "required": [
-                "id",
-                "name",
-                "eventId",
-                "provider"
-              ],
+              "required": ["id", "name", "eventId", "provider"],
               "properties": {
                 "id": {
                   "type": "string"
@@ -613,13 +590,7 @@
         }
       },
       "NewArticle": {
-        "required": [
-          "title",
-          "url",
-          "imageUrl",
-          "publishedAt",
-          "newsSite"
-        ],
+        "required": ["title", "url", "image_url", "published_at", "newsSite"],
         "properties": {
           "title": {
             "type": "string"
@@ -631,13 +602,13 @@
           "url": {
             "type": "string"
           },
-          "imageUrl": {
+          "image_url": {
             "type": "string"
           },
           "summary": {
             "type": "string"
           },
-          "publishedAt": {
+          "published_at": {
             "type": "string",
             "format": "date-time"
           },

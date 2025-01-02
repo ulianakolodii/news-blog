@@ -6,7 +6,7 @@ export const useArticleData = ({ id }: { id: string }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const article = await api.article("/v3/articles/{id}", "get", {
+      const article = await api.article("/v4/articles/{id}", "get", {
         path: { id },
       });
       setArticle(article);

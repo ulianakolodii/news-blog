@@ -13,7 +13,7 @@ export default function ReadMore() {
     <>
       <Box
         sx={{
-          backgroundImage: `url(${article?.imageUrl || ""})`,
+          backgroundImage: `url(${article?.image_url || ""})`,
           position: "absolute",
           backgroundSize: "cover",
           top: -150,

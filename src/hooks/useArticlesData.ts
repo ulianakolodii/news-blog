@@ -12,8 +12,8 @@ export const useArticlesData = ({
 
   useEffect(() => {
     const fetchData = async () => {
-      const news = await api.article("/v3/articles", "get", {
-        query: { _limit: limit },
+      const news = await api.article("/v4/articles", "get", {
+        query: { limit: limit },
       });
       setArticles(news);
     };
@@ -21,21 +21,29 @@ export const useArticlesData = ({
   }, [limit]);
 
   const filteredData = useMemo(() => {
-    if (!articles) return;
-    if (!keywords.length) return articles;
+    if (!articles || !Array.isArray(articles.results))
+      return { count: 0, next: "", previous: "", results: [] };
 
-    const byTitle = articles.reduce((acc, article) => {
+    if (!keywords.length)
+      return {
+        count: articles.results.length,
+        next: "",
+        previous: "",
+        results: articles.results,
+      };
+
+    const byTitle = articles.results.reduce((acc, article) => {
       const title = article.title.toLowerCase();
-      if (keywords.some((keyword) => ` ${title} `.includes(` ${keyword} `))) {
+      if (keywords.some((keyword) => title.includes(keyword.toLowerCase()))) {
         acc.set(article.id, article);
       }
       return acc;
     }, new Map());
 
-    const bySummary = articles.reduce((acc, article) => {
+    const bySummary = articles.results.reduce((acc, article) => {
       const description = article.summary?.toLowerCase() || "";
       if (
-        keywords.some((keyword) => ` ${description} `.includes(` ${keyword} `))
+        keywords.some((keyword) => description.includes(keyword.toLowerCase()))
       ) {
         acc.set(article.id, article);
       }
@@ -44,7 +52,12 @@ export const useArticlesData = ({
 
     const mergedMap = new Map([...byTitle, ...bySummary]);
 
-    return Array.from(mergedMap.values());
+    return {
+      count: mergedMap.size ?? 0,
+      next: "",
+      previous: "",
+      results: Array.from(mergedMap.values()),
+    };
   }, [articles, keywords]);
 
   return filteredData;
